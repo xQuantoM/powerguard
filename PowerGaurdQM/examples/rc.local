@@ -1,8 +1,0 @@
-# Fully power off laptop LCD panel (headless server)
-echo 0 > /sys/class/backlight/acpi_video0/brightness 2>/dev/null
-echo off > /sys/class/drm/card0-LVDS-1/status 2>/dev/null
-
-ethtool -s eth0 wol g 2>/dev/null
-ethtool eth0 2>/dev/null | grep -q "Wake-on: g" || logger -t powerguard "WoL re-arm FAILED"
-/root/powerguard.sh boot
-exit 0
