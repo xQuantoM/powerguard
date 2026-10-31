@@ -1,0 +1,3 @@
+# Append this line to /etc/crontabs/root (do not replace the file).
+# PowerGuard checks AC state once a minute.
+* * * * * /root/powerguard.sh
